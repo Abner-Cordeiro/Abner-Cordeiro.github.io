@@ -30,6 +30,12 @@
                 <li><a href="#experiencia">Experiência</a></li>
                 <li><a href="#contato">Contato</a></li>
                 <li><a href="en/">🇺🇸 EN</a></li>
+                <li>
+                    <button class="theme-toggle" type="button" aria-label="Clarear tela" aria-pressed="false">
+                        <span class="theme-icon moon" aria-hidden="true">☾</span>
+                        <span class="theme-icon sun" aria-hidden="true">☀</span>
+                    </button>
+                </li>
             </ul>
 
         </div>
@@ -133,23 +139,23 @@
             </p>
 
             <div class="skills">
-
-                <span class="skill">Linux</span>
-                <span class="skill">Oracle</span>
-                <span class="skill">SQL</span>
-                <span class="skill">Java</span>
-                <span class="skill">Python</span>
-                <span class="skill">Git</span>
-                <span class="skill">GitHub</span>
-                <span class="skill">Docker</span>
-                <span class="skill">Kubernetes</span>
-                <span class="skill">AWS</span>
-                <span class="skill">REST API</span>
-                <span class="skill">Postman</span>
-                <span class="skill">Prometheus</span>
-                <span class="skill">Grafana</span>
-                <span class="skill">CI/CD</span>
-                <span class="skill">Nginx</span>
+                <span class="skill"><img src="img/transparent/Deus_Linux.png" alt="">Linux</span>
+                <span class="skill"><img src="img/transparent/Oracle.png" alt="">Oracle</span>
+                <span class="skill"><img src="img/transparent/SQL.png" alt="">SQL</span>
+                <span class="skill"><img src="img/transparent/Java.png" alt="">Java</span>
+                <span class="skill"><img src="img/transparent/python.png" alt="">Python</span>
+                <span class="skill"><img src="img/transparent/git.png" alt="">Git</span>
+                <span class="skill"><img src="img/Github.png" alt="">GitHub</span>
+                <span class="skill"><img src="img/transparent/Docker.png" alt="">Docker</span>
+                <span class="skill"><img src="img/transparent/kubernetes.png" alt="">Kubernetes</span>
+                <span class="skill"><img src="img/transparent/AWS.png" alt="">AWS</span>
+                <span class="skill"><img src="img/transparent/Postman.png" alt="">REST API</span>
+                <span class="skill"><img src="img/transparent/Postman.png" alt="">Postman</span>
+                <span class="skill"><img src="img/transparent/Prometheus.png" alt="">Prometheus</span>
+                <span class="skill"><img src="img/transparent/Grafana.png" alt="">Grafana</span>
+                <span class="skill"><img src="img/transparent/Zabbix.png" alt="">Zabbix</span>
+                <span class="skill"><img src="img/Github.png" alt="">CI/CD</span>
+                <span class="skill"><img src="img/transparent/Nginx.png" alt="">Nginx</span>
 
             </div>
 
@@ -350,6 +356,30 @@
         </p>
 
     </footer>
+
+    <script>
+        const themeToggle = document.querySelector('.theme-toggle');
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'light') {
+            document.documentElement.dataset.theme = 'light';
+        }
+
+        function updateThemeToggle() {
+            const isLight = document.documentElement.dataset.theme === 'light';
+            themeToggle.setAttribute('aria-pressed', String(isLight));
+            themeToggle.setAttribute('aria-label', isLight ? 'Escurecer tela' : 'Clarear tela');
+        }
+
+        updateThemeToggle();
+
+        themeToggle.addEventListener('click', () => {
+            const isLight = document.documentElement.dataset.theme === 'light';
+            document.documentElement.dataset.theme = isLight ? 'dark' : 'light';
+            localStorage.setItem('theme', isLight ? 'dark' : 'light');
+            updateThemeToggle();
+        });
+    </script>
 
 </body>
 
